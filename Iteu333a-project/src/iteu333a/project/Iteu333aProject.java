@@ -29,18 +29,36 @@ public class Iteu333aProject {
             str = str.replaceAll("kung", "if");
             str = str.replaceAll("labas", "out");
             str = str.replaceAll("iprint", "println");
+            
+            //Pattern p = Pattern.compile("a*b");
+            //Matcher m = p.matcher("aaaaab");
+            
             lineCount++;
             
-            
-            
+              if(Pattern.matches(".^int(.*\\w*.)=(.*\\d*)", "") && str.trim().endsWith(";") )
+              {
+                  
+                  
+              }
+              /*
               if (str.trim().endsWith(";")||str.trim().endsWith("{")||str.trim().endsWith("}")||str.trim().isEmpty())
                 {
 
                 }
-                else
+              if(str.trim().startsWith("int")&&str.trim().endsWith(";"))
+                {
+
+                }
+              if(str.trim().startsWith("String")&&str.trim().endsWith(";"))
+                {
+
+                }
+              */
+              
+              else
                 {
                     System.out.println("Error at line" + " " + lineCount);                   
-                }
+                }   
                 writer.println(str);
             
             

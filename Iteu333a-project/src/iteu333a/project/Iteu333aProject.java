@@ -63,7 +63,7 @@ public class Iteu333aProject {
                 writer.println(str);
                 
             
-            // string lengh
+            // string length
             String leng = "(ISukat\\(.*\\);)";
             Pattern length = Pattern.compile(leng);
             Matcher lengthmatch = length.matcher(str);

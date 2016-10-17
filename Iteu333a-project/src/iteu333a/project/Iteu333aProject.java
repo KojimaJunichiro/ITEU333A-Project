@@ -35,6 +35,7 @@ public class Iteu333aProject {
             
             lineCount++;
             
+            
               if(Pattern.matches(".^int(.*\\w*.)=(.*\\d*)", "") && str.trim().endsWith(";") )
               {
                   
@@ -60,6 +61,30 @@ public class Iteu333aProject {
                     System.out.println("Error at line" + " " + lineCount);                   
                 }   
                 writer.println(str);
+                
+            
+            // string lengh
+            String leng = "(ISukat\\(.*\\);)";
+            Pattern length = Pattern.compile(leng);
+            Matcher lengthmatch = length.matcher(str);
+            if(lengthmatch.find()){
+                String keep = lengthmatch.group(0).substring(9);
+                System.out.println("embrace = " + keep);
+                String lenpat = "([a-z0-9A-Z]*[+][a-z0-9A-Z]*)";
+                Pattern solvelen = Pattern.compile(lenpat);
+                Matcher solvematch = solvelen.matcher(keep);
+                    if(solvematch.find()){
+                        String[] holdarr = solvematch.group(0).split("[+]");
+                        str = str.replaceAll("MakeSukat\\(.*\\);", "System.out.println(" + holdarr[0] + ".length()+" + holdarr[1] + ".length());");
+                    }
+            }   
+
+                // Comment 
+                String comments = "(////.*)";
+            Pattern comment = Pattern.compile(comments);
+            Matcher comm = comment.matcher(str);
+            continue;
+            
             
             
         }

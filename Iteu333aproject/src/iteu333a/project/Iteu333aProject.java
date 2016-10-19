@@ -17,6 +17,7 @@ public class Iteu333aProject {
     public static void main(String[] args) throws FileNotFoundException, UnsupportedEncodingException, IOException {
         Scanner sc = new Scanner(new FileReader("input.txt"));
         
+
         
         int lineCount = 0;
         //reads the file "input.txt"
@@ -26,31 +27,43 @@ public class Iteu333aProject {
         {
             String str = sc.nextLine();
             //replaces kung with if
-            str = str.replaceAll("kung", "if");
-            str = str.replaceAll("labas", "out");
-            str = str.replaceAll("iprint", "println");
-            
-            //Pattern p = Pattern.compile("a*b");
-            //Matcher m = p.matcher("aaaaab");
+            //str = str.replaceAll("kung", "if");
+            //str = str.replaceAll("labas", "out");
+            //str = str.replaceAll("iprint", "println");
             
             lineCount++;
            
-            if(Pattern.matches("\\s*int[\\s]+[^0-9$&+,:;=?@#|'<>.^*()%!-+\\s]*\\w+\\s*=\\s*\\d+\\s*;", str)) // INTEGER SYNTAX
+            if(Pattern.matches("\\s*", str)) // WHITESPACE
               {
-                
               }
-            else if (Pattern.matches("\\s*String[\\s]+[^0-9$&+,:;=?@#|'<>.^*()%!-+\\s]*\\w+\\s*=\\s*\"\\w+\\s*\"\\s*;", str)) // STRING SYNTAX
+            else if(Pattern.matches("\\s*int[\\s]+[^0-9$&+,:;=?@#|'<>.^*()%!-+\\s]*\\w+\\s*=\\s*\\d+\\s*;", str)) // INTEGER SYNTAX
               {
-                
+              }
+            else if (Pattern.matches("\\s*String[\\s]+[^0-9$&+,:;=?@#|'<>.^*()%!-+\\s]*\\w+\\s*=\\s*\"\\w+\\s*\"\\s*;|\\s*char[\\s]+[^0-9$&+,:;=?@#|'<>.^*()%!-+\\s]*\\w+\\s*=\\s*'\\w'\\s*;", str)) // STRING AND CHAR SYNTAX
+              {
               }
             else if (Pattern.matches("\\s*double[\\s]+[^0-9$&+,:;=?@#|'<>.^*()%!-+\\s]*\\w+\\s*=\\s*\\d+.\\d+\\s*;|\\s*double[\\s]+[^0-9$&+,:;=?@#|'<>.^*()%!-+\\s]*\\w+\\s*=\\s*\\d+\\s*;", str)) // DOUBLE SYNTAX
               {
-                
               }
             else if (Pattern.matches("\\s*float[\\s]+[^0-9$&+,:;=?@#|'<>.^*()%!-+\\s]*\\w+\\s*=\\s*\\d+.\\d+\\s*;|\\s*float[\\s]+[^0-9$&+,:;=?@#|'<>.^*()%!-+\\s]*\\w+\\s*=\\s*\\d+\\s*;", str)) // FLOAT SYNTAX
               {
-                
               }
+            
+           // If Statement REG-EX \s*if\s*[(]\s*[^0-9$&+,:;=?@#|'<>.!()^*%-+\s]*\s*={0,2}\s*\w+
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
             
             
             else

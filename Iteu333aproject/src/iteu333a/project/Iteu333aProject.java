@@ -49,7 +49,11 @@ public class Iteu333aProject {
               {
               }
             
-           // If Statement REG-EX \s*if\s*[(]\s*[^0-9$&+,:;=?@#|'<>.!()^*%-+\s]*\s*={0,2}\s*\w+
+           
+            else if (Pattern.matches("\\s*if\\s*[(]\\s*[^0-9$&+,:;=?@#|'<>.!()^*%-+]*\\s*[)]\\s*[{]\\s*[\\w]+;\\s*[}]", str)) // IF STATEMENT SYNTAX ( NOT POLISHED )
+              {
+              }
+
             
             
             

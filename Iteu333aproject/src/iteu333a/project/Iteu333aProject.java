@@ -54,11 +54,11 @@ public class Iteu333aProject {
               {
               }
             
-            else if (Pattern.matches("[/][/]\\s*.*", str)) // COMMENT SYNTAX
+            else if (Pattern.matches("[/][/]\\s*.*|[/][*][\\s]*(.|\\n)*[*][/]", str)) // COMMENT SYNTAX
               {
               }
             
-         
+       
             
             
             

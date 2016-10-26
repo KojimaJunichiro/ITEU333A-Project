@@ -54,10 +54,22 @@ public class Iteu333aProject {
               {
               }
             
-            else if (Pattern.matches("[/][/]\\s*.*|[/][*][\\s]*(.|\\n)*[*][/]", str)) // COMMENT SYNTAX
+            else if (Pattern.matches("\\s*[/][/]\\s*.*", str)) // SINGLE AND MULTIPLE COMMENT SYNTAX
+              {
+              }
+            else if (Pattern.matches("/\\\\*[^*]*\\\\*+(?:[^/*][^*]*\\\\*+)*/", str)) // SINGLE AND MULTIPLE COMMENT SYNTAX
               {
               }
             
+              
+            
+            //comment \s*[/][*]\s*(.|\n)*[*][/]
+            // approved multi-line comment /\\*([^*]|[\\r\\n]|(\\*+([^*/]|[\\r\\n])))*\\*+/
+            
+            
+            
+            /*
+            */
        
             
             

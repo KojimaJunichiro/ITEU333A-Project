@@ -54,7 +54,7 @@ public class Iteu333aProject {
               {
               }
             
-            else if (Pattern.matches("[/][/][\\w\\s\\W]*", str)) // COMMENT SYNTAX
+            else if (Pattern.matches("[/][/]\\s*.*", str)) // COMMENT SYNTAX
               {
               }
             

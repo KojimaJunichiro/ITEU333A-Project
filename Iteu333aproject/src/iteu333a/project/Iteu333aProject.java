@@ -20,12 +20,16 @@ public class Iteu333aProject {
 
         
         int lineCount = 0;
+        int n=0;
+        
         //reads the file "input.txt"
         PrintWriter writer = new PrintWriter("Test.java", "UTF-8");
 
         while (sc.hasNext()) 
         {
+            
             String str = sc.nextLine();
+            String a = str;
             //replaces kung with if
             //str = str.replaceAll("kung", "if");
             //str = str.replaceAll("labas", "out");
@@ -61,13 +65,26 @@ public class Iteu333aProject {
               { 
              
               }
-            else if (Pattern.matches("\\s*System[.]out[.]println[\\s]*[(][\\s]*[\"][\\s]*.*[\"][\\s]*[+][\\s]*[\"][\\s]*.*[\\s]*[\"][\\s]*[)][\\s]*[;]", str)) // STRING CONCATINATE
+            else if (Pattern.matches("\\s*System[.]out[.]println[\\s]*[(][\\s]*[\"][\\s]*.*[\"][\\s]*[+][\\s]*[\"][\\s]*.*[\\s]*[\"][\\s]*[)][\\s]*[;]", str)) // STRING CONCATENATE
               { 
-                //java how to get string inside a string 
-                //http://stackoverflow.com/questions/14584018/how-can-i-get-inside-parentheses-value-in-a-string
+                    
+                    Matcher m = Pattern.compile("\"([^+\n]+)\"").matcher(a);
+                    while(m.find()) {
+                      System.out.print(m.group(0).replaceAll("\"","" ));
+
+                    }
+                    System.out.println("");
+                    a = "";
               }
             
             
+            
+            //so far ONLY READS MDAS
+            else if (Pattern.matches("\\s*[\\w\\s=]*\\s*[0-9A-Za-a\\w]+[\\s]*([+-/*][\\s]*[0-9A-Za-a\\w]+[\\s]*)*;", str))
+              {
+                  
+            
+              }
             
             //System[.]out[.]println[\s]*[(][\s]*["][\s]*.*["][\s]*[+][\s]*["][\s]*.*[\s]*["][\s]*[)][\s]*[;]
             //comment \s*[/][*]\s*(.|\n)*[*][/]

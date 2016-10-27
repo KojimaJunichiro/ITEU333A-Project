@@ -61,10 +61,15 @@ public class Iteu333aProject {
               { 
              
               }
-           
+            else if (Pattern.matches("\\s*System[.]out[.]println[\\s]*[(][\\s]*[\"][\\s]*.*[\"][\\s]*[+][\\s]*[\"][\\s]*.*[\\s]*[\"][\\s]*[)][\\s]*[;]", str)) // STRING CONCATINATE
+              { 
+                //java how to get string inside a string 
+                //http://stackoverflow.com/questions/14584018/how-can-i-get-inside-parentheses-value-in-a-string
+              }
             
             
             
+            //System[.]out[.]println[\s]*[(][\s]*["][\s]*.*["][\s]*[+][\s]*["][\s]*.*[\s]*["][\s]*[)][\s]*[;]
             //comment \s*[/][*]\s*(.|\n)*[*][/]
             // approved multi-line comment /\\*([^*]|[\\r\\n]|(\\*+([^*/]|[\\r\\n])))*\\*+/
              
@@ -95,7 +100,7 @@ public class Iteu333aProject {
                 System.out.println("Error at line" + " " + lineCount);
                 
             }
-            
+
                 writer.println(str);
                 
             

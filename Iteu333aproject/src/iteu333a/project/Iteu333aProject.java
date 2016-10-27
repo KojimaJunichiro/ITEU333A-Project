@@ -42,6 +42,14 @@ public class Iteu333aProject {
               }
             else if(Pattern.matches("\\s*int[\\s]+[^0-9$&+,:;=?@#|'<>.^*()%!-+\\s]*\\w+\\s*=\\s*\\d+\\s*;", str)) // INTEGER SYNTAX
               {
+                Matcher m = Pattern.compile("([int])+").matcher(a);
+                    while(m.find()) {
+                      System.out.print(m.group(0).replaceAll("\"","" ));
+
+                    }
+
+                    System.out.println("");
+                    a = "";
                 
               }
             else if (Pattern.matches("\\s*String[\\s]+[^0-9$&+,:;=?@#|'<>.^*()%!-+]*\\s*[\\w]+\\s*[=]\\s*\\\"\\s*\\w+\\s*\\\"\\s*[;]|\\s*char[\\s]+[^0-9$&+,:;=?@#|'<>.^*()%!-+\\s]*\\w+\\s*=\\s*'\\w'\\s*;", str)) // STRING AND CHAR SYNTAX

@@ -122,9 +122,16 @@ public class Iteu333aProject {
                     System.out.println("");
                     a = "";
               }
-            
-            
-            
+            else if (Pattern.matches("\\s*System[.]out[.]println[\\s]*[(][\\s]*.*[.]length[(]\\s*\\d*[)][)]\\s*[;]", str)) // STRING LENGTH
+            {
+                Matcher m = Pattern.compile("\\(([^\n]+)\\.").matcher(a);
+                m.find(); 
+                 //System.out.print(m.group(0).replaceAll("\\.","" ));
+                int length = m.end();
+                
+                System.out.println(length);
+                a = "";
+            }
             //so far ONLY READS MDAS
             else if (Pattern.matches("\\s*[\\w\\s=]*\\s*[0-9A-Za-a\\w]+[\\s]*([+-/*][\\s]*[0-9A-Za-a\\w]+[\\s]*)*;", str))
               {

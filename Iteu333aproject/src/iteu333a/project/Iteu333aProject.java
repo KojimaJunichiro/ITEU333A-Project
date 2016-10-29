@@ -1,5 +1,6 @@
 package iteu333a.project;
 
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -9,19 +10,23 @@ import java.io.UnsupportedEncodingException;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
+import java.util.Stack;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import javax.script.ScriptEngine;
+import javax.script.ScriptEngineManager;
 
 public class Iteu333aProject {
 
-    public static void main(String[] args) throws FileNotFoundException, UnsupportedEncodingException, IOException {
+    
+    public static void main(String[] args) throws FileNotFoundException, UnsupportedEncodingException, IOException, Exception {
         Scanner sc = new Scanner(new FileReader("input.txt"));
         
-
+        
         
         int lineCount = 0;
-        int n=0;
-        
+      
+
         //reads the file "input.txt"
         PrintWriter writer = new PrintWriter("Test.java", "UTF-8");
 
@@ -36,6 +41,7 @@ public class Iteu333aProject {
             //str = str.replaceAll("labas", "out");
             //str = str.replaceAll("iprint", "println");
             
+           
             lineCount++;
            
             if(Pattern.matches("\\s*", str)) // WHITESPACE
@@ -133,12 +139,42 @@ public class Iteu333aProject {
                 a = "";
             }
             //so far ONLY READS MDAS
-            else if (Pattern.matches("\\s*[\\w\\s=]*\\s*[0-9A-Za-a\\w]+[\\s]*([+-/*][\\s]*[0-9A-Za-a\\w]+[\\s]*)*;", str))
+            else if (Pattern.matches("\\s*[0-9A-Za-a\\w]+[\\s]*([+-/*][\\s]*[0-9A-Za-a\\w]+[\\s]*)*;", str))
               {
+              
+                
+                  //Matcher m = Pattern.compile("[0-9]+[\\s]*([+-/*][\\s]*[0-9]+[\\s]*)*;").matcher(a);
                   
-            
-              }
-            
+                  
+                  String hanap = str;
+                  
+                  
+                  ScriptEngineManager manager = new ScriptEngineManager();
+                  ScriptEngine engine = manager.getEngineByName("js");
+                  Object result = engine.eval(hanap);
+                  
+                  System.out.println("" + result);
+                  
+                  /*while(m.find()) {
+                      System.out.print(m.group(0).replaceAll("[+-/*];","" ));
+
+                    }
+                  try{
+                        int hanap;
+                      hanap = Integer.parseInt(str);
+                      
+                        System.out.println("" + hanap +"\n");
+                  }     catch (NumberFormatException e) {
+      
+                }*/
+                 
+                 
+                                        
+                    }
+
+                  
+              
+           
             //System[.]out[.]println[\s]*[(][\s]*["][\s]*.*["][\s]*[+][\s]*["][\s]*.*[\s]*["][\s]*[)][\s]*[;]
             //comment \s*[/][*]\s*(.|\n)*[*][/]
             // approved multi-line comment /\\*([^*]|[\\r\\n]|(\\*+([^*/]|[\\r\\n])))*\\*+/
@@ -160,10 +196,7 @@ public class Iteu333aProject {
             
             
             
-            
-            
-            
-            
+ 
             
             else
             {
@@ -173,6 +206,7 @@ public class Iteu333aProject {
 
                 writer.println(str);
                 
+               
             
             // string length
             String leng = "(ISukat\\(.*\\);)";

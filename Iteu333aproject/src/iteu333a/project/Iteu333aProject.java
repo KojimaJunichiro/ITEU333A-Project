@@ -30,6 +30,7 @@ public class Iteu333aProject {
             
             String str = sc.nextLine();
             String a = str;
+            String b = str;
             //replaces kung with if
             //str = str.replaceAll("kung", "if");
             //str = str.replaceAll("labas", "out");
@@ -40,18 +41,38 @@ public class Iteu333aProject {
             if(Pattern.matches("\\s*", str)) // WHITESPACE
               {
               }
+            
             else if(Pattern.matches("\\s*int[\\s]+[^0-9$&+,:;=?@#|'<>.^*()%!-+\\s]*\\w+\\s*=\\s*\\d+\\s*;", str)) // INTEGER SYNTAX
               {
-                Matcher m = Pattern.compile("([int])+").matcher(a);
-                    while(m.find()) {
-                      System.out.print(m.group(0).replaceAll("\"","" ));
+                   //"\\s*System[.]out[.]println[\\s]*[(][\\s]*.*[\\s]*[)];"
 
-                    }
+                        Matcher m = Pattern.compile("int\\s*([^+\\n]+)\\s*\\=\\s*(\\d)+;").matcher(a);
+                        while(m.find()) 
+                        {
+                          b=m.group(1);
+                          System.out.println(m.group(1));
+                          System.out.println(m.group(2));
 
-                    System.out.println("");
-                    a = "";
+                        }
+                        System.out.println("levi");
+                        
+                        if (Pattern.matches("\\s*System[.]out[.]println[\\s]*[(][\\s]*levipaul[\\s]*[)];" ,str)) // OUTPUT 
+                        { 
+                            
+                              while(m.find()) 
+                              {
+                                System.out.println(m.group(2));
+
+                              }
+
+                              System.out.println("");
+                              b = "";
+
+                        }
+                
                 
               }
+            
             else if (Pattern.matches("\\s*String[\\s]+[^0-9$&+,:;=?@#|'<>.^*()%!-+]*\\s*[\\w]+\\s*[=]\\s*\\\"\\s*\\w+\\s*\\\"\\s*[;]|\\s*char[\\s]+[^0-9$&+,:;=?@#|'<>.^*()%!-+\\s]*\\w+\\s*=\\s*'\\w'\\s*;", str)) // STRING AND CHAR SYNTAX
               {
               }

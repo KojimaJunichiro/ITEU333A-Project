@@ -33,7 +33,7 @@ public class Iteu333aProject {
         ArrayList<String> mylist3 = new ArrayList<String>(); // CHAR
         ArrayList<String> mylist4 = new ArrayList<String>(); // DOUBLE
         ArrayList<String> mylist5 = new ArrayList<String>(); // FLOAT
-
+        Double douche = new Double("6.35");
         //reads the file "input.txt"
         PrintWriter writer = new PrintWriter("Test.java", "UTF-8");
 
@@ -98,6 +98,17 @@ public class Iteu333aProject {
             
             else if (Pattern.matches("\\s*double[\\s]+[^0-9$&+,:;=?@#|'<>.^*()%!-+\\s]*\\w+\\s*=\\s*\\d+.\\d+\\s*;|\\s*double[\\s]+[^0-9$&+,:;=?@#|'<>.^*()%!-+\\s]*\\w+\\s*=\\s*\\d+\\s*;", str)) // DOUBLE SYNTAX
               {
+                
+                Matcher m = Pattern.compile("\\s*double[\\s]+([^0-9$&+,:;=?@#|'<>. ^*()%!-+]+\\s*[\\w$]*)\\s*=\\s*([\\d+][.]*[\\d+]*)\\s*;").matcher(a);
+                          while( m.find())
+                           {
+                                      b=m.group(1).replaceAll("\\s+", "");
+                                      c=m.group(2);
+                                      mylist4.add(b);
+                                      mylist4.add(c);
+
+
+                           }
               }
             else if (Pattern.matches("\\s*float[\\s]+[^0-9$&+,:;=?@#|'<>.^*()%!-+\\s]*\\w+\\s*=\\s*\\d+.\\d+\\s*;|\\s*float[\\s]+[^0-9$&+,:;=?@#|'<>.^*()%!-+\\s]*\\w+\\s*=\\s*\\d+\\s*;", str)) // FLOAT SYNTAX
               {
@@ -187,7 +198,20 @@ public class Iteu333aProject {
                         {
                             if(Pattern.matches("\\s*System[.]out[.]println[\\s]*[(][\\s]*"+mylist3.get(ch)+"[\\s]*[)];", str))   //OUTPUT CHAR VARIABLE
                             {   
-                                System.out.println(mylist3.get(ch+1));
+                                
+                                System.out.println(mylist2.get(ch+1));
+                                //System.out.println(mylist2);
+                            }
+                           
+                        }
+                     
+                     for(int doub=0;doub<mylist3.size();doub++)
+                        {
+                            if(Pattern.matches("\\s*System[.]out[.]println[\\s]*[(][\\s]*"+mylist3.get(doub)+"[\\s]*[)];", str))   //OUTPUT CHAR VARIABLE
+                            {   
+                                String douche1 = mylist3.get(doub+1);
+                                double retval = douche.parseDouble(douche1);
+                                System.out.println(retval);
                                 //System.out.println(mylist2);
                             }
                            

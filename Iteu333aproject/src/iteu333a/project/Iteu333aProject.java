@@ -15,6 +15,8 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javax.script.ScriptEngine;
 import javax.script.ScriptEngineManager;
+import java.util.ArrayList;
+
 
 public class Iteu333aProject {
 
@@ -25,7 +27,10 @@ public class Iteu333aProject {
         
         
         int lineCount = 0;
-      
+        String b = null;
+        String c = null;
+        ArrayList<String> mylist1 = new ArrayList<String>();
+        ArrayList<String> mylist2 = new ArrayList<String>();
 
         //reads the file "input.txt"
         PrintWriter writer = new PrintWriter("Test.java", "UTF-8");
@@ -35,13 +40,12 @@ public class Iteu333aProject {
             
             String str = sc.nextLine();
             String a = str;
-            String b = str;
+
             //replaces kung with if
             //str = str.replaceAll("kung", "if");
             //str = str.replaceAll("labas", "out");
             //str = str.replaceAll("iprint", "println");
-            
-           
+
             lineCount++;
            
             if(Pattern.matches("\\s*", str)) // WHITESPACE
@@ -53,32 +57,40 @@ public class Iteu333aProject {
                    //"\\s*System[.]out[.]println[\\s]*[(][\\s]*.*[\\s]*[)];"
 
                         Matcher m = Pattern.compile("int\\s*([^+\\n]+)\\s*\\=\\s*(\\d)+;").matcher(a);
-                        while(m.find()) 
+                       while( m.find())
                         {
-                          b=m.group(1);
-                          System.out.println(m.group(1));
-                          System.out.println(m.group(2));
-
+                                   b=m.group(1).replaceAll("", "");
+                                   c=m.group(2);
+                                   mylist1.add(b);
+                                   mylist2.add(c);
+                                   
+                                   //System.out.print(mylist1.get(0));
+                                   
+                                   //System.out.print(mylist2);
+                                   
                         }
-                        System.out.println("levi");
-                        
-                        if (Pattern.matches("\\s*System[.]out[.]println[\\s]*[(][\\s]*levipaul[\\s]*[)];" ,str)) // OUTPUT 
-                        { 
-                            
-                              while(m.find()) 
-                              {
-                                System.out.println(m.group(2));
+                       //System.out.print(mylist1);
+                      /* if(Pattern.matches("\\s*System[.]out[.]println[\\s]*[(][\\s]*"+b+"[\\s]*[)];", str))
+                                    {
+                                        System.out.println("levi12345");
 
-                              }
-
-                              System.out.println("");
-                              b = "";
-
-                        }
-                
-                
+                                    }
+                                   System.out.println(b);*/
+                       //mylist1.add("321421");
+                       //System.out.println(mylist1);
+                       //System.out.print(mylist1.size());
+       
               }
             
+            
+            else if(Pattern.matches("\\s*System[.]out[.]println[\\s]*[(][\\s]*"+b+"[\\s]*[)];", str))
+            {   
+                System.out.print(mylist1);
+                System.out.print(mylist1.get(1));
+                //System.out.println(mylist2);
+            }
+            
+
             else if (Pattern.matches("\\s*String[\\s]+[^0-9$&+,:;=?@#|'<>.^*()%!-+]*\\s*[\\w]+\\s*[=]\\s*\\\"\\s*\\w+\\s*\\\"\\s*[;]|\\s*char[\\s]+[^0-9$&+,:;=?@#|'<>.^*()%!-+\\s]*\\w+\\s*=\\s*'\\w'\\s*;", str)) // STRING AND CHAR SYNTAX
               {
               }

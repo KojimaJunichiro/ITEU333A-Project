@@ -25,12 +25,15 @@ public class Iteu333aProject {
         Scanner sc = new Scanner(new FileReader("input.txt"));
         
         
-        
+        int a$b =3;
         int lineCount = 0;
         String b = null;
         String c = null;
-        ArrayList<String> mylist1 = new ArrayList<String>();
-        ArrayList<String> mylist2 = new ArrayList<String>();
+        ArrayList<String> mylist1 = new ArrayList<String>(); // INT
+        ArrayList<String> mylist2 = new ArrayList<String>(); // STRING
+        ArrayList<String> mylist3 = new ArrayList<String>(); // CHAR
+        ArrayList<String> mylist4 = new ArrayList<String>(); // DOUBLE
+        ArrayList<String> mylist5 = new ArrayList<String>(); // FLOAT
 
         //reads the file "input.txt"
         PrintWriter writer = new PrintWriter("Test.java", "UTF-8");
@@ -52,47 +55,60 @@ public class Iteu333aProject {
               {
               }
             
-            else if(Pattern.matches("\\s*int[\\s]+[^0-9$&+,:;=?@#|'<>.^*()%!-+\\s]*\\w+\\s*=\\s*\\d+\\s*;", str)) // INTEGER SYNTAX
+            else if(Pattern.matches("\\s*int[\\s]+[^0-9$&+,:;=?@#|'<>.^*()%!-+\\s]+[\\w$]*\\s*=\\s*\\d+\\s*;", str)) // INTEGER SYNTAX
               {
                    //"\\s*System[.]out[.]println[\\s]*[(][\\s]*.*[\\s]*[)];"
 
-                        Matcher m = Pattern.compile("int\\s*([^+\\n]+)\\s*\\=\\s*(\\d)+;").matcher(a);
+                        Matcher m = Pattern.compile("int\\s*([^+\\n]+)\\s*\\=\\s*(\\d+);").matcher(a);
                        while( m.find())
                         {
                                    b=m.group(1).replaceAll("", "");
                                    c=m.group(2);
                                    mylist1.add(b);
-                                   mylist2.add(c);
-                                   
-                                   //System.out.print(mylist1.get(0));
-                                   
-                                   //System.out.print(mylist2);
+                                   mylist1.add(c);
                                    
                         }
-                       //System.out.print(mylist1);
-                      /* if(Pattern.matches("\\s*System[.]out[.]println[\\s]*[(][\\s]*"+b+"[\\s]*[)];", str))
-                                    {
-                                        System.out.println("levi12345");
-
-                                    }
-                                   System.out.println(b);*/
-                       //mylist1.add("321421");
-                       //System.out.println(mylist1);
-                       //System.out.print(mylist1.size());
-       
               }
             
-            
-            else if(Pattern.matches("\\s*System[.]out[.]println[\\s]*[(][\\s]*"+b+"[\\s]*[)];", str))
-            {   
-                System.out.print(mylist1);
-                System.out.print(mylist1.get(1));
-                //System.out.println(mylist2);
-            }
-            
-
-            else if (Pattern.matches("\\s*String[\\s]+[^0-9$&+,:;=?@#|'<>.^*()%!-+]*\\s*[\\w]+\\s*[=]\\s*\\\"\\s*\\w+\\s*\\\"\\s*[;]|\\s*char[\\s]+[^0-9$&+,:;=?@#|'<>.^*()%!-+\\s]*\\w+\\s*=\\s*'\\w'\\s*;", str)) // STRING AND CHAR SYNTAX
+            else if (Pattern.matches("\\s*String[\\s]+[^0-9$&+,:;=?@#|'<>. ^*()%!-+]+\\s*[\\w$]*\\s*[=]\\s*\\\"\\s*[0-9$&+,:;=?@#|'<>.^*()%!-+\\w]+\\s*\\\"\\s*[;]|\\s*char[\\s]+[^0-9$&+,:;=?@#|'<>.^*()%!-+]+\\s*[\\w$]*\\s*[=]\\s*\\'[0-9$&+,:;=?@#|'<>.^*()%!-+\\w\\s]\\'\\s*[;]", str)) // STRING AND CHAR SYNTAX
               {
+                    Matcher m = Pattern.compile("String[\\s]+([^0-9$&+,:;=?@#|'<>.^*()%!-+]+\\s*[\\w]*)\\=\\s*\\\"\\s*([0-9$&+,:;=?@#|'<>. ^*()%!-+\\w]*)\\s*\\\";").matcher(a);
+                          while( m.find())
+                           {
+                                      b=m.group(1).replaceAll("", "");
+                                      c=m.group(2);
+                                      mylist2.add(b);
+                                      mylist2.add(c);
+
+
+                           }
+                          
+                          Matcher n = Pattern.compile("\\s*char[\\s]+([^0-9$&+,:;=?@#|'<>.^*()%!-+]+\\s*[\\w]*)\\s*[=]\\s*\\'([0-9$&+,:;=?@#|'<>.^*()%!-+\\w\\s])\\'\\s*[;]").matcher(a);
+                          while( n.find())
+                           {
+                                      b=n.group(1).replaceAll("", "");
+                                      c=n.group(2);
+                                      mylist3.add(b);
+                                      mylist3.add(c);
+
+
+                           }
+                
+              }
+            else if (Pattern.matches("\\s*char[\\s]+[^0-9$&+,:;=?@#|'<>.^*()%!-+]+\\s*[\\w$]*\\s*[=]\\s*\\'[0-9$&+,:;=?@#|'<>.^*()%!-+\\w\\s]\\'\\s*[;]", str)) // CHAR SYNTAX
+              {
+ 
+                          Matcher m = Pattern.compile("\\s*char[\\s]+([^0-9$&+,:;=?@#|'<>.^*()%!-+]+\\s*[\\w]*)\\s*[=]\\s*\\'([0-9$&+,:;=?@#|'<>.^*()%!-+\\w\\s])\\'\\s*[;]").matcher(a);
+                          while( m.find())
+                           {
+                                      b=m.group(1).replaceAll("", "");
+                                      c=m.group(2);
+                                      mylist3.add(b);
+                                      mylist3.add(c);
+
+
+                           }
+                
               }
             else if (Pattern.matches("\\s*double[\\s]+[^0-9$&+,:;=?@#|'<>.^*()%!-+\\s]*\\w+\\s*=\\s*\\d+.\\d+\\s*;|\\s*double[\\s]+[^0-9$&+,:;=?@#|'<>.^*()%!-+\\s]*\\w+\\s*=\\s*\\d+\\s*;", str)) // DOUBLE SYNTAX
               {
@@ -113,43 +129,84 @@ public class Iteu333aProject {
               { 
              
               }
-            else if (Pattern.matches("\\s*System[.]out[.]println[\\s]*[(][\\s]*[\"][\\s]*.*[\"][\\s]*[+][\\s]*[\"][\\s]*.*[\\s]*[\"][\\s]*[)][\\s]*[;]", str)) // STRING CONCATENATE
+            
+            
+            else if (Pattern.matches("System.out.println\\s*\\(.*\\s*\\);", str))  // CHECKING FOR SYSTEM.OUTPRINTLNN() STATEMENTS
               { 
-                    
-                    Matcher m = Pattern.compile("\"([^+\n]+)\"").matcher(a);
-                    while(m.find()) {
-                      System.out.print(m.group(0).replaceAll("\"","" ));
+                    if (Pattern.matches("\\s*System[.]out[.]println[\\s]*[(][\\s]*[\"][\\s]*.*[\"][\\s]*[+][\\s]*[\"][\\s]*.*[\\s]*[\"][\\s]*[)][\\s]*[;]", str)) // STRING CONCATENATE
+                        { 
 
+                              Matcher m = Pattern.compile("\"([^+\n]+)\"").matcher(a);
+                              while(m.find()) {
+                                System.out.print(m.group(0).replaceAll("\"","" ));
+
+                              }
+
+
+                              System.out.println("");
+                              a = "";
+                        }
+
+                  else if (Pattern.matches("\\s*System[.]out[.]println[\\s]*[(][\\s]*[\"][\\s]*.*[\"][\\s]*[)][\\s]*;", str)) // OUTPUT STRING
+                        { 
+
+                              Matcher m = Pattern.compile("\"([^\n]+)\"").matcher(a);
+                              while(m.find()) {
+                                System.out.print(m.group(0).replaceAll("\"","" ));
+                              }
+
+
+                              System.out.println("");
+                              a = "";
+                        }
+
+
+                  else if (Pattern.matches("\\s*System[.]out[.]println[\\s]*[(][\\s]*.*[.]length[(]\\s*\\d*[)][)]\\s*[;]", str)) // STRING LENGTH
+                    {
+                        Matcher m = Pattern.compile("\\(([^\n]+)\\.").matcher(a);
+                        m.find(); 
+                         //System.out.print(m.group(0).replaceAll("\\.","" ));
+                        int length = m.end();
+
+                        System.out.println(length);
+                        a = "";
                     }
 
-
-                    System.out.println("");
-                    a = "";
+                     for(int i=0;i<mylist1.size();i++)
+                        {
+                            if(Pattern.matches("\\s*System[.]out[.]println[\\s]*[(][\\s]*"+mylist1.get(i)+"[\\s]*[)];", str))   //OUTPUT INT VARIABLE
+                            {   
+                                System.out.println(mylist1.get(i+1));
+                                //System.out.println(mylist2);
+                            }
+                        }
+                     
+                     for(int s=0;s<mylist2.size();s++)
+                        {
+                            if(Pattern.matches("\\s*System[.]out[.]println[\\s]*[(][\\s]*"+mylist2.get(s)+"[\\s]*[)];", str))   //OUTPUT STRING VARIABLE
+                            {   
+                                System.out.println(mylist2.get(s+1));
+                                //System.out.println(mylist2);
+                            }
+                        }
+                     
+                     for(int ch=0;ch<mylist3.size();ch++)
+                        {
+                            if(Pattern.matches("\\s*System[.]out[.]println[\\s]*[(][\\s]*"+mylist3.get(ch)+"[\\s]*[)];", str))   //OUTPUT CHAR VARIABLE
+                            {   
+                                System.out.println(mylist3.get(ch+1));
+                                //System.out.println(mylist2);
+                            }
+                        }
+                    
               }
             
-            else if (Pattern.matches("\\s*System[.]out[.]println[\\s]*[(][\\s]*[\"][\\s]*.*[\"][\\s]*[)][\\s]*;", str)) // OUTPUT STRING
-              { 
-                    
-                    Matcher m = Pattern.compile("\"([^\n]+)\"").matcher(a);
-                    while(m.find()) {
-                      System.out.print(m.group(0).replaceAll("\"","" ));
-
-                    }
-
-
-                    System.out.println("");
-                    a = "";
-              }
-            else if (Pattern.matches("\\s*System[.]out[.]println[\\s]*[(][\\s]*.*[.]length[(]\\s*\\d*[)][)]\\s*[;]", str)) // STRING LENGTH
-            {
-                Matcher m = Pattern.compile("\\(([^\n]+)\\.").matcher(a);
-                m.find(); 
-                 //System.out.print(m.group(0).replaceAll("\\.","" ));
-                int length = m.end();
-                
-                System.out.println(length);
-                a = "";
-            }
+            
+            
+            
+            
+            
+            
             //so far ONLY READS MDAS
             else if (Pattern.matches("\\s*[0-9A-Za-a\\w]+[\\s]*([+-/*][\\s]*[0-9A-Za-a\\w]+[\\s]*)*;", str))
               {
@@ -196,19 +253,7 @@ public class Iteu333aProject {
             /*
             */
        
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
- 
+           
             
             else
             {

@@ -35,6 +35,7 @@ public class Iteu333aProject {
         ArrayList<String> mylist5 = new ArrayList<String>(); // FLOAT
         Double douche = new Double("6.35");
         Float float1 = new Float("5.21");
+        
         //reads the file "input.txt"
         PrintWriter writer = new PrintWriter("Test.java", "UTF-8");
 
@@ -43,11 +44,6 @@ public class Iteu333aProject {
             
             String str = sc.nextLine();
             String a = str;
-
-            //replaces kung with if
-            //str = str.replaceAll("kung", "if");
-            //str = str.replaceAll("labas", "out");
-            //str = str.replaceAll("iprint", "println");
 
             lineCount++;
            
@@ -187,7 +183,7 @@ public class Iteu333aProject {
                             if(Pattern.matches("\\s*System[.]out[.]println[\\s]*[(][\\s]*"+mylist1.get(i)+"[\\s]*[)];", str))   //OUTPUT INT VARIABLE
                             {   
                                 System.out.println(mylist1.get(i+1));
-                                //System.out.println(mylist2);
+
                             }
                         }
                      
@@ -196,7 +192,7 @@ public class Iteu333aProject {
                             if(Pattern.matches("\\s*System[.]out[.]println[\\s]*[(][\\s]*"+mylist2.get(s)+"[\\s]*[)];", str))   //OUTPUT STRING VARIABLE
                             {   
                                 System.out.println(mylist2.get(s+1));
-                                //System.out.println(mylist2);
+
                             }
                         }
                      
@@ -206,7 +202,7 @@ public class Iteu333aProject {
                             {   
                                 
                                 System.out.println(mylist2.get(ch+1));
-                                //System.out.println(mylist2);
+
                             }
                            
                         }
@@ -218,7 +214,6 @@ public class Iteu333aProject {
                                 String douche1 = mylist4.get(doub+1);
                                 double retval = douche.parseDouble(douche1);
                                 System.out.println(retval);
-                                //System.out.println(mylist2);
                             }
                            
                         }
@@ -230,12 +225,14 @@ public class Iteu333aProject {
                                 String float2 = mylist5.get(flot+1);
                                 float retval = float1.parseFloat(float2);
                                 System.out.println(retval);
-                                //System.out.println(mylist2);
                             }
                            
                         }
                          
               }
+            
+            //MALINIS NA YUNG PART NATO HANGGANG TAAS :)
+            //=================================================================================
             
             
             //so far ONLY READS MDAS

@@ -34,6 +34,7 @@ public class Iteu333aProject {
         ArrayList<String> mylist4 = new ArrayList<String>(); // DOUBLE
         ArrayList<String> mylist5 = new ArrayList<String>(); // FLOAT
         Double douche = new Double("6.35");
+        Float float1 = new Float("5.21");
         //reads the file "input.txt"
         PrintWriter writer = new PrintWriter("Test.java", "UTF-8");
 
@@ -96,7 +97,7 @@ public class Iteu333aProject {
               }
             
             
-            else if (Pattern.matches("\\s*double[\\s]+[^0-9$&+,:;=?@#|'<>.^*()%!-+\\s]*\\w+\\s*=\\s*\\d+.\\d+\\s*;|\\s*double[\\s]+[^0-9$&+,:;=?@#|'<>.^*()%!-+\\s]*\\w+\\s*=\\s*\\d+\\s*;", str)) // DOUBLE SYNTAX
+            else if (Pattern.matches("\\s*double[\\s]+([^0-9$&+,:;=?@#|'<>. ^*()%!-+]+\\s*[\\w$]*)\\s*=\\s*([\\d+][.]*[\\d+]*)\\s*;", str)) // DOUBLE SYNTAX
               {
                 
                 Matcher m = Pattern.compile("\\s*double[\\s]+([^0-9$&+,:;=?@#|'<>. ^*()%!-+]+\\s*[\\w$]*)\\s*=\\s*([\\d+][.]*[\\d+]*)\\s*;").matcher(a);
@@ -110,8 +111,19 @@ public class Iteu333aProject {
 
                            }
               }
-            else if (Pattern.matches("\\s*float[\\s]+[^0-9$&+,:;=?@#|'<>.^*()%!-+\\s]*\\w+\\s*=\\s*\\d+.\\d+\\s*;|\\s*float[\\s]+[^0-9$&+,:;=?@#|'<>.^*()%!-+\\s]*\\w+\\s*=\\s*\\d+\\s*;", str)) // FLOAT SYNTAX
+            else if (Pattern.matches("\\s*float[\\s]+([^0-9$&+,:;=?@#|'<>. ^*()%!-+]+\\s*[\\w$]*)\\s*=\\s*([\\d+][.]*[\\d+]*)\\s*;", str)) // FLOAT SYNTAX
               {
+                
+                Matcher m = Pattern.compile("\\s*float[\\s]+([^0-9$&+,:;=?@#|'<>. ^*()%!-+]+\\s*[\\w$]*)\\s*=\\s*([\\d+][.]*[\\d+]*)\\s*;").matcher(a);
+                          while( m.find())
+                           {
+                                      b=m.group(1).replaceAll("\\s+", "");
+                                      c=m.group(2);
+                                      mylist5.add(b);
+                                      mylist5.add(c);
+
+
+                           }
               }
             
            
@@ -126,11 +138,8 @@ public class Iteu333aProject {
               { 
              
               }
-            
-            
-            else if (Pattern.matches("System.out.println\\s*\\(.*\\s*\\);", str))  // CHECKING FOR SYSTEM.OUTPRINTLNN() STATEMENTS
-              { 
-                   if (Pattern.matches("\\s*System[.]out[.]println[\\s]*[(][\\s]*[\"][\\s]*.*[\"][\\s]*[+][\\s]*[\"][\\s]*.*[\\s]*[\"][\\s]*[)][\\s]*[;]", str)) // STRING CONCATENATE
+
+                else if (Pattern.matches("\\s*System[.]out[.]println[\\s]*[(][\\s]*[\"][\\s]*.*[\"][\\s]*[+][\\s]*[\"][\\s]*.*[\\s]*[\"][\\s]*[)][\\s]*[;]", str)) // STRING CONCATENATE
                         { 
 
                               Matcher m = Pattern.compile("\"([^+\n]+)\"").matcher(a);
@@ -168,15 +177,12 @@ public class Iteu333aProject {
                         System.out.println(length);
                         a = "";
                     }
-                   
-                   
-                  else
-                     {
-                         System.out.println("Error at line" + " " + lineCount);
-
-                     }
-                      
-                     for(int i=0;i<mylist1.size();i++)
+                  
+                  
+            else if (Pattern.matches("\\s*System.out.println\\s*\\(\\s*[^\"\"]+\\);", str))  // CHECK SYSTEM.OUT.PRINTLN(VARIABLE)
+              { 
+                
+                for(int i=0;i<mylist1.size();i++)
                         {
                             if(Pattern.matches("\\s*System[.]out[.]println[\\s]*[(][\\s]*"+mylist1.get(i)+"[\\s]*[)];", str))   //OUTPUT INT VARIABLE
                             {   
@@ -205,25 +211,31 @@ public class Iteu333aProject {
                            
                         }
                      
-                     for(int doub=0;doub<mylist3.size();doub++)
+                     for(int doub=0;doub<mylist4.size();doub++)
                         {
-                            if(Pattern.matches("\\s*System[.]out[.]println[\\s]*[(][\\s]*"+mylist3.get(doub)+"[\\s]*[)];", str))   //OUTPUT CHAR VARIABLE
+                            if(Pattern.matches("\\s*System[.]out[.]println[\\s]*[(][\\s]*"+mylist4.get(doub)+"[\\s]*[)];", str))   //OUTPUT DOUBLE VARIABLE
                             {   
-                                String douche1 = mylist3.get(doub+1);
+                                String douche1 = mylist4.get(doub+1);
                                 double retval = douche.parseDouble(douche1);
                                 System.out.println(retval);
                                 //System.out.println(mylist2);
                             }
                            
                         }
-
-                    
+                     
+                     for(int flot=0;flot<mylist5.size();flot++)
+                        {
+                            if(Pattern.matches("\\s*System[.]out[.]println[\\s]*[(][\\s]*"+mylist5.get(flot)+"[\\s]*[)];", str))   //OUTPUT FLOAT VARIABLE
+                            {   
+                                String float2 = mylist5.get(flot+1);
+                                float retval = float1.parseFloat(float2);
+                                System.out.println(retval);
+                                //System.out.println(mylist2);
+                            }
+                           
+                        }
+                         
               }
-            
-            
-            
-            
-            
             
             
             //so far ONLY READS MDAS

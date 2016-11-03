@@ -24,7 +24,7 @@ public class Iteu333aProject {
     public static void main(String[] args) throws FileNotFoundException, UnsupportedEncodingException, IOException, Exception {
         Scanner sc = new Scanner(new FileReader("input.txt"));
         
-        
+
         int lineCount = 0;
         String b = null;
         String c = null;
@@ -186,6 +186,53 @@ public class Iteu333aProject {
                     }
                   
                   
+            else if (Pattern.matches("\\s*System[.]out[.]println[(]\\s*([0-9]*)+[\\s]*\\s*[+-/*][\\s]*([0-9]+[\\s]*)\\s*[)];", str))   //MDAS
+              {
+              
+                System.out.println("dsa321321");
+                  Matcher m = Pattern.compile("[(]([0-9]+[\\s]*)\\s*[+-/*][\\s]*([0-9]+[\\s]*)\\s*[)];").matcher(a);
+                   while(m.find())
+                   
+                   {
+                       //m.group(1).replaceAll("\\s*", "");
+                       
+                       int i1 = Integer.parseInt(m.group(1),10);
+                       int i2 = Integer.parseInt(m.group(2),10);
+                       
+                       System.out.println(i1+i2);
+                       
+                   }   
+                   
+                      
+                   
+                    
+                  
+                  /*String hanap = str;
+                  
+                  
+                  ScriptEngineManager manager = new ScriptEngineManager();
+                  ScriptEngine engine = manager.getEngineByName("js");
+                  Object result = engine.eval(hanap);
+                  
+                  System.out.println("" + result);
+                  */
+                  /*while(m.find()) {
+                      System.out.print(m.group(0).replaceAll("[+-/*];","" ));
+
+                    }
+                  try{
+                        int hanap;
+                      hanap = Integer.parseInt(str);
+                      
+                        System.out.println("" + hanap +"\n");
+                  }     catch (NumberFormatException e) {
+      
+                }*/
+                 
+                 
+                                        
+                    }
+                  
             else if (Pattern.matches("\\s*System.out.println\\s*\\(\\s*[^\"\"]+\\);", str))  // CHECK SYSTEM.OUT.PRINTLN(VARIABLE)
               { 
                 
@@ -246,54 +293,7 @@ public class Iteu333aProject {
             //=================================================================================
             
             
-            //so far ONLY READS MDAS
-            else if (Pattern.matches("\\s*System[.]out[.]println[(][0-9]+[\\s]*([+-/*][\\s]*[0-9]+[\\s]*)*[)];", str))
-              {
-              
-                System.out.println("levi");
-                  Matcher m = Pattern.compile("[0-9]+[\\s]*([+-/*][\\s]*[0-9]+[\\s]*)*").matcher(a);
-                   while(m.find()){
-                       
-                       
-                       //m.group(1).replaceAll("\\s*", "");
-                       
-                       hanap = m.group(1).replaceAll("\\s*","");
-                       System.out.println(m.group(1));
-                       
-                       
-                       
-                       
-                   }   
-                   
-                      
-
-                    
-                  
-                  /*String hanap = str;
-                  
-                  
-                  ScriptEngineManager manager = new ScriptEngineManager();
-                  ScriptEngine engine = manager.getEngineByName("js");
-                  Object result = engine.eval(hanap);
-                  
-                  System.out.println("" + result);
-                  */
-                  /*while(m.find()) {
-                      System.out.print(m.group(0).replaceAll("[+-/*];","" ));
-
-                    }
-                  try{
-                        int hanap;
-                      hanap = Integer.parseInt(str);
-                      
-                        System.out.println("" + hanap +"\n");
-                  }     catch (NumberFormatException e) {
-      
-                }*/
-                 
-                 
-                                        
-                    }
+            
 
                   
               

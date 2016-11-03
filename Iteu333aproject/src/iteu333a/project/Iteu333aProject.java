@@ -44,6 +44,7 @@ public class Iteu333aProject {
             
             String str = sc.nextLine();
             String a = str;
+            String hanap;
 
             lineCount++;
            
@@ -246,14 +247,29 @@ public class Iteu333aProject {
             
             
             //so far ONLY READS MDAS
-            else if (Pattern.matches("\\s*[0-9A-Za-a\\w]+[\\s]*([+-/*][\\s]*[0-9A-Za-a\\w]+[\\s]*)*;", str))
+            else if (Pattern.matches("\\s*System[.]out[.]println[(][0-9]+[\\s]*([+-/*][\\s]*[0-9]+[\\s]*)*[)];", str))
               {
               
-                
-                  //Matcher m = Pattern.compile("[0-9]+[\\s]*([+-/*][\\s]*[0-9]+[\\s]*)*;").matcher(a);
+                System.out.println("levi");
+                  Matcher m = Pattern.compile("[0-9]+[\\s]*([+-/*][\\s]*[0-9]+[\\s]*)*").matcher(a);
+                   while(m.find()){
+                       
+                       
+                       //m.group(1).replaceAll("\\s*", "");
+                       
+                       hanap = m.group(1).replaceAll("\\s*","");
+                       System.out.println(m.group(1));
+                       
+                       
+                       
+                       
+                   }   
+                   
+                      
+
+                    
                   
-                  
-                  String hanap = str;
+                  /*String hanap = str;
                   
                   
                   ScriptEngineManager manager = new ScriptEngineManager();
@@ -261,7 +277,7 @@ public class Iteu333aProject {
                   Object result = engine.eval(hanap);
                   
                   System.out.println("" + result);
-                  
+                  */
                   /*while(m.find()) {
                       System.out.print(m.group(0).replaceAll("[+-/*];","" ));
 

@@ -122,7 +122,17 @@ public class Iteu333aProject {
                            }
               }
             
-           
+            else if (Pattern.matches("\\s*[public|private]*\\s*[class|void|double|int|String]*\\s*([^0-9$&+,:;=?@#|'<>.^*()%!-+\\s]+[\\w$]+)\\(\\s*[int|double|float|String|char]*\\s+[^0-9$&+,:;=?@#|'<>.^*()%!-+\\s]+[\\w$]*[^\\[\\]&+,:;=?@#|'<>.^*()%!-+\\s]+\\)\\s*\\{[.\\s\\w\\W]*\\}}", str)) // FUNCTION WITH SINGLE PARAMETER SYNTAX
+              { 
+             
+              }
+             else if (Pattern.matches("\\s*[public|private]*\\s*[class|void|double|int|String]*\\s*([^0-9$&+,:;=?@#|'<>.^*()%!-+\\s]+[\\w$]+)\\(\\s*\\)\\s*\\{[.\\s\\w\\W]*\\}", str)) // FUNCTION NO PARAMETER SYNTAX
+              { 
+             
+              }
+            
+            
+            
             else if (Pattern.matches("\\s*if\\s*[(]\\s*[^0-9$&+,:;=?@#|'<>.!()^*%-+]*\\s*[)]\\s*[{]\\s*[\\w]+;\\s*[}]", str)) // IF STATEMENT SYNTAX ( NOT POLISHED )
               {
               }

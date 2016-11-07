@@ -44,7 +44,7 @@ public class Iteu333aProject {
             
             String str = sc.nextLine();
             String a = str;
-            String hanap;
+           
 
             lineCount++;
            
@@ -186,20 +186,28 @@ public class Iteu333aProject {
                     }
                   
                   
-            else if (Pattern.matches("\\s*System[.]out[.]println[(]\\s*([0-9]*)+[\\s]*\\s*[+-/*][\\s]*([0-9]+[\\s]*)\\s*[)];", str))   //MDAS
+            else if (Pattern.matches("\\s*System[.]out[.]println[(]\\s*(([0-9]+[\\s]*)\\s*([+-/*][\\s]*([0-9]+[\\s]*))*)*[)];", str))   //MDAS
               {
               
-                System.out.println("dsa321321");
-                  Matcher m = Pattern.compile("[(]([0-9]+[\\s]*)\\s*[+-/*][\\s]*([0-9]+[\\s]*)\\s*[)];").matcher(a);
+                
+                  Matcher m = Pattern.compile("\\s*(([0-9]+[\\s]*)\\s*([+-/*][\\s]*([0-9]+[\\s]*))*)*").matcher(a);
                    while(m.find())
                    
                    {
-                       //m.group(1).replaceAll("\\s*", "");
+                       try{
+                       String hanap;
+                       hanap = m.group(1);
                        
-                       int i1 = Integer.parseInt(m.group(1),10);
-                       int i2 = Integer.parseInt(m.group(2),10);
-                       
-                       System.out.println(i1+i2);
+                 ScriptEngineManager manager = new ScriptEngineManager();
+                 ScriptEngine engine = manager.getEngineByName("js");
+                 Object result = engine.eval(hanap);
+                  
+                  System.out.println("" + result);
+                       }
+                       catch (NullPointerException e) {}
+                       //int i1 = Integer.parseInt(m.group(1),10);
+                       //int i2 = Integer.parseInt(m.group(3),10);
+                       //System.out.println(i1+i2);
                        
                    }   
                    
